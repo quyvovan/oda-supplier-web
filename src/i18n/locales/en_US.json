@@ -1,0 +1,29 @@
+{
+  "home": {
+    "user": "Go to User Page",
+    "articles": "Go to Articles Page",
+    "change_lang": "Switch to Chinese"
+  },
+  "user": {
+    "title": "User Page",
+    "intro": "Example：fetch data from redux-saga",
+    "info": "User info",
+    "id": "id",
+    "username": "username",
+    "name": "name"
+  },
+  "articles": {
+    "title": "ArticleList Page",
+    "intro": "get data from getStaticProps",
+    "article_id": "id",
+    "article_title": "title",
+    "article_body": "content"
+  },
+  "footer": {
+    "copyright": "Copyright ©2020 - present Created by JackySummer"
+  },
+  "error": {
+    "404": "Sorry, the page you visited does not exist."
+  },
+  "back_home": "Back to home page"
+}
