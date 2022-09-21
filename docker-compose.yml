@@ -7,11 +7,15 @@ services:
       dockerfile: './Dockerfile'
     working_dir: '/var/www/app'
     volumes:
-      - ./pages:/var/www/app/pages
-      - ./src:/var/www/app/src
-      - ./public:/var/www/app/public
-      - ./styles:/var/www/app/styles
+      - .:/var/www/app
+      - /var/www/app/node_modules
     ports:
       - 3000:3000
     expose:
       - 3000
+    networks:
+      - next-app
+
+networks:
+    next-app:
+        driver: bridge

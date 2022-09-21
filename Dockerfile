@@ -2,8 +2,7 @@ FROM node:16-alpine
 
 WORKDIR /var/www/app
 
-COPY package.json .
-COPY yarn.lock .
+COPY package*.json .
 
 RUN yarn install
 RUN yarn add -D @swc/cli @swc/core
