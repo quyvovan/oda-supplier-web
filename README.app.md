@@ -1171,7 +1171,7 @@ import { GetServerSideProps } from 'next';
 import PrimaryLayout from '../../components/layouts/primary/PrimaryLayout';
 import SearchResult from '../../components/utility/search-result/SearchResult';
 import { ISearchData } from '../../lib/search/types';
-import { IApiSearchResponseData } from '../api/search';
+import { IApiSearchResponseData } from '../apis/search';
 import { NextPageWithLayout } from '../page';
 
 export interface IResults {

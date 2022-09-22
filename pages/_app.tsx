@@ -34,6 +34,11 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 
 // ** Global css styles
 import 'src/styles/globals.css';
+
+// Store
+import { Provider } from 'react-redux';
+import { persistor, store } from 'src/store';
+import { PersistGate } from 'redux-persist/integration/react';
 // ** Language
 
 // ** Extend App Props with Emotion
@@ -67,31 +72,35 @@ const App = (props: ExtendedAppProps) => {
 
   return (
     <CacheProvider value={emotionCache}>
-      <Head>
-        <title>{`${themeConfig.templateName} - Material Design React Admin Template`}</title>
-        <meta
-          name="description"
-          content={`${themeConfig.templateName} – Material Design React Admin Dashboard Template – is the most developer friendly & highly customizable Admin Dashboard Template based on MUI v5.`}
-        />
-        <meta
-          name="keywords"
-          content="Material Design, MUI, Admin Template, React Admin Template"
-        />
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
-      </Head>
-      <SettingsProvider>
-        <SettingsConsumer>
-          {({ settings }) => (
-            <ThemeComponent settings={settings}>
-              {getLayout(
-                <>
-                  <Component {...pageProps} /> ?? {null}
-                </>
+      <Provider store={store}>
+        <PersistGate persistor={persistor} loading={null}>
+          <Head>
+            <title>{`${themeConfig.templateName} - Material Design React Admin Template`}</title>
+            <meta
+              name='description'
+              content={`${themeConfig.templateName} – Material Design React Admin Dashboard Template – is the most developer friendly & highly customizable Admin Dashboard Template based on MUI v5.`}
+            />
+            <meta
+              name='keywords'
+              content='Material Design, MUI, Admin Template, React Admin Template'
+            />
+            <meta name='viewport' content='initial-scale=1, width=device-width' />
+          </Head>
+          <SettingsProvider>
+            <SettingsConsumer>
+              {({ settings }) => (
+                <ThemeComponent settings={settings}>
+                  {getLayout(
+                    <>
+                      <Component {...pageProps} /> ?? {null}
+                    </>,
+                  )}
+                </ThemeComponent>
               )}
-            </ThemeComponent>
-          )}
-        </SettingsConsumer>
-      </SettingsProvider>
+            </SettingsConsumer>
+          </SettingsProvider>
+        </PersistGate>
+      </Provider>
     </CacheProvider>
   );
 };
