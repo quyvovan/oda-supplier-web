@@ -8,7 +8,7 @@ const Button = (theme: Theme) => ({
     MuiButton: {
       styleOverrides: {
         root: {
-          fontWeight: 500,
+          fontWeight: 600,
           borderRadius: 5,
           lineHeight: 1.71,
           letterSpacing: '0.3px',

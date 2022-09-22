@@ -34,6 +34,7 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 
 // ** Global css styles
 import 'src/styles/globals.css';
+import { CssBaseline } from '@mui/material';
 // ** Language
 
 // ** Extend App Props with Emotion
@@ -83,11 +84,8 @@ const App = (props: ExtendedAppProps) => {
         <SettingsConsumer>
           {({ settings }) => (
             <ThemeComponent settings={settings}>
-              {getLayout(
-                <>
-                  <Component {...pageProps} /> ?? {null}
-                </>
-              )}
+                <CssBaseline />
+                {getLayout(<Component {...pageProps} />)}
             </ThemeComponent>
           )}
         </SettingsConsumer>

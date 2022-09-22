@@ -2,7 +2,7 @@ import Button from '@mui/material/Button';
 import { NextPage } from 'next';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
-import { Title } from 'src/components/common';
+import Title from 'src/components/common/Title.styled';
 import styled from 'styled-components';
 
 const CoreTitle = styled(Title)`
