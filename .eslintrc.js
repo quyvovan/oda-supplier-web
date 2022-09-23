@@ -67,6 +67,7 @@ module.exports = {
     'react/react-in-jsx-scope': 0,
     '@typescript-eslint/ban-types': 0,
     '@typescript-eslint/no-empty-interface': 0,
-    'arrow-body-style': 0
+    'arrow-body-style': 0,
+    '@typescript-eslint/no-explicit-any': 0
   },
 };
