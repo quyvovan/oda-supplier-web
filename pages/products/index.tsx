@@ -1,12 +1,14 @@
 import * as React from 'react';
 
-export interface products {
+export interface IPropsProducts {
+  products: string
 }
-
-export default function Products (props: products) {
+const Products = (props: IPropsProducts) => {
   return (
     <div>
-      
+      { props }
     </div>
   );
 }
+
+export default Products;

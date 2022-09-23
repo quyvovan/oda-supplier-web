@@ -1,12 +1,14 @@
 import * as React from 'react';
 
-export interface orders {
+export interface IPropsOrders {
+  orders: string
 }
-
-export default function Orders (props: orders) {
+const Orders = (props: IPropsOrders) => {
   return (
     <div>
-      
+      { props }
     </div>
   );
 }
+
+export default Orders;

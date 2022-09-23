@@ -1,12 +1,14 @@
 import * as React from 'react';
 
-export interface staffs {
+export interface IPropsStaffs {
+  staffs: string
 }
-
-export default function Staffs (props: staffs) {
+const Staffs = (props: IPropsStaffs) => {
   return (
     <div>
-      
+      { props }
     </div>
   );
 }
+
+export default Staffs;

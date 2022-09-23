@@ -1,12 +1,14 @@
 import * as React from 'react';
 
-export interface error {
+export interface IPropsErrors {
+  message: string
 }
-
-export default function Error404 (props: error) {
+const Errors = (props: IPropsErrors) => {
   return (
     <div>
-      
+      { props }
     </div>
   );
 }
+
+export default Errors;

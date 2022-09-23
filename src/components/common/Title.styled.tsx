@@ -3,7 +3,7 @@ import * as React from 'react';
 
 interface ITitleMainProps {
     name: String
-  }
+}
 
 const TitleMain = ({name}: ITitleMainProps) => {
     return (

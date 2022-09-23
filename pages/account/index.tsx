@@ -1,10 +1,12 @@
-import { NextPage } from 'next';
 import * as React from 'react';
 
-const Account:NextPage = () => {
+interface IAccountProps {
+  account: String
+}
+const Account = (props: IAccountProps) => {
   return (
     <div>
-      account
+      { props }
     </div>
   );
 }
