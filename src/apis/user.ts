@@ -1,16 +1,21 @@
 import { api } from 'src/utils/api';
 import { IProfile } from 'src/types/user';
 
-export const userApi = api.injectEndpoints({
+// let see here: https://redux-toolkit.js.org/rtk-query/api/created-api/code-splitting#injectendpoints
+const apiWithTag = api.enhanceEndpoints({
+  addTagTypes: ['Users'],
+});
+
+export const userApi = apiWithTag.injectEndpoints({
   endpoints: (build) => ({
-    fetchListUser: build.query<any, IProfile>({
-      query: (params) => ({
-        url: `/users/${123}`,
+    getListUser: build.query<IProfile[], any>({
+      query: () => ({
+        url: `/pokemon`,
         method: 'GET',
-        params,
       }),
+      providesTags: ['Users'],
     }),
-    createOrder: build.mutation<Omit<IProfile, 'id'>, IProfile>({
+    createUser: build.mutation<Omit<IProfile, 'id'>, IProfile>({
       query: (params) => ({
         url: `/users/${123}`,
         method: 'POST',
@@ -25,10 +30,10 @@ export const userApi = api.injectEndpoints({
       }),
     }),
     retrieveUser: build.query<any, IProfile>({
-      query: (params) => ({
-        url: `/users/${123}`,
+      query: () => ({
+        url: `/pokemon/1`,
         method: 'GET',
-        params,
+        params: {},
       }),
     }),
     deleteUser: build.mutation({
@@ -49,11 +54,16 @@ export const userApi = api.injectEndpoints({
   overrideExisting: false,
 });
 
+// Export hooks for usage in functional components
 export const {
-  useFetchListUserQuery,
-  useCreateOrderMutation,
+  useGetListUserQuery,
+  useCreateUserMutation,
   useUpdateUserMutation,
   useRetrieveUserQuery,
   useDeleteUserMutation,
   useBatchUpdateUsersMutation,
+  util: { getRunningOperationPromises },
 } = userApi;
+
+// export endpoints for use in SSR
+export const { getListUser, createUser } = userApi.endpoints;

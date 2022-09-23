@@ -1,12 +1,12 @@
 import { BaseQueryFn } from '@reduxjs/toolkit/dist/query/react';
 import Axios, { AxiosError, AxiosRequestConfig } from 'axios';
-import { flatten } from 'rambda';
 import { handleErrorAxios } from 'src/utils/request-helper';
 
 const BASE_URL = process.env.HOST_NAME;
 const TIME_OUT_API = parseInt(process.env.TIME_OUT_API ?? '0', 10);
 
-export const axiosBaseQuery = (baseUrl = ''): BaseQueryFn<{
+export const axiosBaseQuery = (baseUrl = BASE_URL || 'https://pokeapi.co/api/v2'
+): BaseQueryFn<{
   url?: string;
   method?: AxiosRequestConfig['method'];
   data?: AxiosRequestConfig['data'];
@@ -14,9 +14,8 @@ export const axiosBaseQuery = (baseUrl = ''): BaseQueryFn<{
 }> =>
   async ({ url, method, data, params }) => {
     try {
-      const _baseUrl = baseUrl ?? BASE_URL;
       const defaultConfig: AxiosRequestConfig = {
-        baseURL: baseUrl ?? BASE_URL,
+        baseURL: baseUrl!,
         timeout: TIME_OUT_API,
         headers: {
           'Content-Type': 'application/json',
@@ -25,9 +24,13 @@ export const axiosBaseQuery = (baseUrl = ''): BaseQueryFn<{
           // locale: `${lang}`,
         },
       };
-      const result = await Axios.request(
-        flatten([defaultConfig, { method, data, params, url: `${_baseUrl + url}` }]) as AxiosRequestConfig,
-      );
+      const result = await Axios.request({
+        ...defaultConfig,
+        method,
+        data,
+        params,
+        url: `${baseUrl! + url}`,
+      }) as AxiosRequestConfig;
       return { data: result?.data };
     } catch (axiosError) {
       let err = axiosError as AxiosError;

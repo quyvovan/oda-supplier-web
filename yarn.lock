@@ -7929,6 +7929,11 @@ next-auth@^4.3.1:
     preact-render-to-string "^5.1.19"
     uuid "^8.3.2"
 
+next-redux-wrapper@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/next-redux-wrapper/-/next-redux-wrapper-8.0.0.tgz#588f2d89146c60c77d4a40c0af7e5282acfe4773"
+  integrity sha512-zKRdpvDeqNXQr1j5DUWwsB2fz6XpHR32iy2qJGItTKLsbLB9GvtxDL9b4mFCfhDvnzy5dw97UqMjWDpFY8h0zA==
+
 next@12.1.4:
   version "12.1.4"
   resolved "https://registry.yarnpkg.com/next/-/next-12.1.4.tgz#597a9bdec7aec778b442c4f6d41afd2c64a54b23"
@@ -9194,7 +9199,7 @@ redux-thunk@^2.4.1:
   resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.4.1.tgz#0dd8042cf47868f4b29699941de03c9301a75714"
   integrity sha512-OOYGNY5Jy2TWvTL1KgAlVy6dcx3siPJ1wTq741EPyUKfn6W6nChdICjZwCd0p8AZBs5kWpZlbkXW2nE/zjUa+Q==
 
-redux@^4.0.4, redux@^4.1.2:
+redux@^4.0.4, redux@^4.1.2, redux@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/redux/-/redux-4.2.0.tgz#46f10d6e29b6666df758780437651eeb2b969f13"
   integrity sha512-oSBmcKKIuIR4ME29/AeNUnl5L+hvBq7OaJWzaptTQJAntaPvxIJqfnjbaEiCzzaIz+XmVILfqAM3Ob0aXLPfjA==

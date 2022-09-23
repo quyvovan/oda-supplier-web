@@ -1,8 +1,8 @@
 import { combineReducers } from '@reduxjs/toolkit'
-import { userApi } from 'src/apis/user';
+import { api } from 'src/utils/api';
 
 const rootReducer = combineReducers({
-  [userApi.reducerPath]: userApi.reducer,
+  [api.reducerPath]: api.reducer,
 });
 
 export default rootReducer
