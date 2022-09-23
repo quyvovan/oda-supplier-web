@@ -1,6 +1,7 @@
-import * as React from 'react';
 import { IAccount } from './account.types';
 
-const Account = (props: IAccount) => <div> { props } </div>
+const Account = (props: IAccount) => {
+  return props;
+};
 
 export default Account;

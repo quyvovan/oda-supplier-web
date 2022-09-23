@@ -1,5 +1,6 @@
-import * as React from 'react';
+import { IStaffs } from './staffs.types';
 
-export interface IPropsStaffs {}
-const Staffs = (props: IPropsStaffs) => <div>{ props }</div>
+const Staffs = (props: IStaffs) => {
+  return { props };
+};
 export default Staffs;

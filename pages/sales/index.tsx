@@ -1,6 +1,7 @@
-import * as React from 'react';
+import { ISales } from './sales.types';
 
-export interface IPropsSales {}
-const Sales = (props: IPropsSales) => <div> { props } </div>
+const Sales = (props: ISales) => {
+  return { props };
+};
 
 export default Sales;
