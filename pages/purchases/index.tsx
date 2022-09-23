@@ -1,6 +1,6 @@
 import * as React from 'react';
+import { IPurchases } from './purchase.types';
 
-export interface IPropsPurchases {}
-const Purchases = (props: IPropsPurchases) => <div> { props } </div>
+const Purchases = (props: IPurchases) => <div> { props } </div>
 
 export default Purchases;

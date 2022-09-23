@@ -1,5 +1,5 @@
 import * as React from 'react';
+import { IOrders } from './order.types';
 
-export interface IPropsOrders {}
-const Orders = (props: IPropsOrders) =>  <div> { props }</div>
+const Orders = (props: IOrders) =>  <div> { props }</div>
 export default Orders;

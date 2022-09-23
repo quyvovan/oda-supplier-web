@@ -1,6 +1,6 @@
 import * as React from 'react';
+import { IInventory } from './inventory.types';
 
-export interface IPropsInventory {}
-const Inventory = (props: IPropsInventory) => <div> { props } </div>
+const Inventory = (props: IInventory) => <div> { props } </div>
 
 export default Inventory;
