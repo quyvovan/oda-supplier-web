@@ -33,4 +33,12 @@ const Home: NextPage = () => {
     </div>
   );
 };
+// pages/index.js
+export async function getStaticProps() {
+  console.log('url', process.env.HOST_NAME);
+  // pages/index.js
+  return {
+    props: {},
+  };
+}
 export default Home;
