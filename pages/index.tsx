@@ -2,13 +2,13 @@ import Button from '@mui/material/Button';
 import { NextPage } from 'next';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
-import Title from 'src/components/common/Title.styled';
+import TitleMain from 'src/components/common/Title.styled';
 import styled from 'styled-components';
 
-const CoreTitle = styled(Title)`
-  margin: 40px 0;
-  font-weight: 700;
-`;
+// const CoreTitle = styled(Title)`
+//   margin: 40px 0;
+//   font-weight: 700;
+// `;
 
 const LinkButton = styled(Button)`
   margin-right: 20px;
@@ -22,7 +22,7 @@ const Home: NextPage = () => {
   };
   return (
     <div>
-      <CoreTitle>Nextjs-TS-material-Redux-Storybook-Jest111111</CoreTitle>
+      <TitleMain name="Nextjs-TS-material-Redux-Storybook-Jest" />
       <LinkButton>
         <Link href="/">{t('home.user')}</Link>
       </LinkButton>
