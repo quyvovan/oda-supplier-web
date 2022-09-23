@@ -1075,9 +1075,9 @@ Everything else below the ellipsis for the component is the same, only the type 
 
 I'm going to begin with the data and work my way out. I've already created the data in the mock database. The next connection point to that data is our [API route](https://nextjs.org/docs/api-routes/introduction) that will be loading it and returning a filtered version of it to whoever is querying.
 
-All API routes in Next by default begin with the `/api` prefix to differentiate them from routes that you would expect to visit and receive an HTML page. Our search query API will be `/api/search`, so create that structure now along with an `index.ts` file. Since this is an API dealing with data and not a React component, we can just use the `.ts` extension:
+All API routes in Next by default begin with the `/api` prefix to differentiate them from routes that you would expect to visit and receive an HTML page. Our search query API will be `/api/search`, so create that structure now along with an `index.tsx` file. Since this is an API dealing with data and not a React component, we can just use the `.ts` extension:
 
-`/pages/api/search/index.ts`
+`/pages/api/search/index.tsx`
 
 ```ts
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
@@ -1171,7 +1171,7 @@ import { GetServerSideProps } from 'next';
 import PrimaryLayout from '../../components/layouts/primary/PrimaryLayout';
 import SearchResult from '../../components/utility/search-result/SearchResult';
 import { ISearchData } from '../../lib/search/types';
-import { IApiSearchResponseData } from '../api/search';
+import { IApiSearchResponseData } from '../apis/search';
 import { NextPageWithLayout } from '../page';
 
 export interface IResults {

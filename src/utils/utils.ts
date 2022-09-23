@@ -5,8 +5,8 @@ import { NextRouter } from 'next/router'
  * Check for URL queries as well for matching
  * Current URL & Item Path
  *
- * @param item
- * @param activeItem
+ * @param router
+ * @param path
  */
 export const handleURLQueries = (router: NextRouter, path: string | undefined): boolean => {
   if (Object.keys(router.query).length && path) {

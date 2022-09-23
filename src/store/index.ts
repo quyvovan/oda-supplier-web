@@ -1,22 +1,32 @@
-import createSagaMiddleware from 'redux-saga'
-import rootReducer from 'src/store/rootReducers'
-import rootSaga from 'src/store/rootSagas'
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit';
+import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE } from 'redux-persist';
+import { api } from 'src/utils/api';
+// import storage from 'redux-persist/lib/storage'
+import rootReducer from 'src/store/rootReducers';
+import { createWrapper } from 'next-redux-wrapper';
 
-const makeStore = () => {
-  const sagaMiddleware = createSagaMiddleware()
-  const store = configureStore({
-    reducer: rootReducer,
-    middleware: getDefaultMiddleware =>
-      getDefaultMiddleware({ thunk: false }).concat(sagaMiddleware),
-    devTools: process.env.NODE_ENV !== 'production',
-  })
-  sagaMiddleware.run(rootSaga)
-  return store
-}
+// const persistConfig = {
+//   key: 'root',
+//   storage: storage,
+//   whitelist: [''],
+// };
 
-const store = makeStore()
+// const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-export type RootState = ReturnType<typeof store.getState>
+const store = () => configureStore({
+  reducer: rootReducer,
+  middleware: getDefaultMiddleware => {
+    return getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }).concat(api.middleware);
+  },
+});
 
-export default store
+
+export type AppStore = ReturnType<typeof store>;
+export type RootState = ReturnType<AppStore["getState"]>;
+export type AppDispatch = AppStore["dispatch"];
+
+export const StoreWrapper = createWrapper<AppStore>(store, { debug: true });

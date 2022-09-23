@@ -16,30 +16,30 @@ const LinkButton = styled(Button)`
 `;
 
 const Home: NextPage = () => {
-  const { t, i18n } = useTranslation();
+    const { t, i18n } = useTranslation();
 
-  const changeLanguage = () => {
-    i18n.changeLanguage(i18n.language === 'zh_CN' ? 'en_US' : 'zh_CN');
-  };
-  return (
-    <div>
-      <TitleMain name="Nextjs-TS-material-Redux-Storybook-Jest" />
-      <LinkButton>
-        <Link href="/">{t('home.user')}</Link>
-      </LinkButton>
-      <LinkButton>
-        <Link href="/">{t('home.articles')}</Link>
-      </LinkButton>
-      <Button onClick={changeLanguage}>{t('home.change_lang')}</Button>
-    </div>
-  );
+    const changeLanguage = () => {
+        i18n.changeLanguage(i18n.language === 'zh_CN' ? 'en_US' : 'zh_CN');
+    };
+    return (
+        <div>
+            <TitleMain name="Nextjs-TS-material-Redux-Storybook-Jest" />
+            <LinkButton>
+                <Link href="/">{t('home.user')}</Link>
+            </LinkButton>
+            <LinkButton>
+                <Link href="/">{t('home.articles')}</Link>
+            </LinkButton>
+            <Button onClick={changeLanguage}>{t('home.change_lang')}</Button>
+        </div>
+    );
 };
 // getServerSideProps, getStaticPaths, getStaticProps
 export const getServerSideProps = async () => {
-  const response = await fetch('https://jsonplaceholder.typicode.com/users');
-  const data = await response.json();
-  return {
-    props: { users: data },
-  };
+    const response = await fetch('https://jsonplaceholder.typicode.com/users');
+    const data = await response.json();
+    return {
+        props: { users: data },
+    };
 };
 export default Home;
