@@ -1,5 +1,6 @@
 import Button from '@mui/material/Button';
 import { NextPage } from 'next';
+
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import TitleMain from 'src/components/common/Title.styled';
@@ -33,12 +34,12 @@ const Home: NextPage = () => {
     </div>
   );
 };
-// pages/index.js
-export async function getStaticProps() {
-  console.log('url', process.env.HOST_NAME);
-  // pages/index.js
+// getServerSideProps, getStaticPaths, getStaticProps
+export const getServerSideProps = async () => {
+  const response = await fetch('https://jsonplaceholder.typicode.com/users');
+  const data = await response.json();
   return {
-    props: {},
+    props: { users: data },
   };
-}
+};
 export default Home;

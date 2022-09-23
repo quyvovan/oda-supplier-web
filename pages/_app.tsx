@@ -33,8 +33,8 @@ import { createEmotionCache } from 'src/utils/create-emotion-cache';
 import 'react-perfect-scrollbar/dist/css/styles.css';
 
 // ** Global css styles
-import 'src/styles/globals.css';
 import { CssBaseline } from '@mui/material';
+import 'src/styles/globals.css';
 // ** Language
 
 // ** Extend App Props with Emotion
@@ -84,8 +84,8 @@ const App = (props: ExtendedAppProps) => {
         <SettingsConsumer>
           {({ settings }) => (
             <ThemeComponent settings={settings}>
-                <CssBaseline />
-                {getLayout(<Component {...pageProps} />)}
+              <CssBaseline />
+              {getLayout(<Component {...pageProps} />)}
             </ThemeComponent>
           )}
         </SettingsConsumer>
