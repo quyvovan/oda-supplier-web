@@ -1,5 +1,6 @@
 import Button from '@mui/material/Button';
 import { NextPage } from 'next';
+
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import { Title } from 'src/components/common';
@@ -22,7 +23,7 @@ const Home: NextPage = () => {
   };
   return (
     <div>
-      <CoreTitle>Nextjs-TS-material-Redux-Storybook-Jest111111</CoreTitle>
+      <CoreTitle>Nextjs-TS</CoreTitle>
       <LinkButton>
         <Link href="/">{t('home.user')}</Link>
       </LinkButton>
@@ -33,12 +34,12 @@ const Home: NextPage = () => {
     </div>
   );
 };
-// pages/index.js
-export async function getStaticProps() {
-  console.log('url', process.env.HOST_NAME);
-  // pages/index.js
+// getServerSideProps, getStaticPaths, getStaticProps
+export const getServerSideProps = async () => {
+  const response = await fetch('https://jsonplaceholder.typicode.com/users');
+  const data = await response.json();
   return {
-    props: {},
+    props: { users: data },
   };
-}
+};
 export default Home;
